@@ -4,6 +4,7 @@ body{
     background-size: 20%;
     background-position: bottom right;
     background-repeat: no-repeat;    
+    height: 100vh;
 }
 /* index page styling */
 .index-header{
@@ -13,7 +14,7 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-.index-container{
+.index-container, .menu-container{
     max-width: 500px; 
     margin: auto; 
     background-color: white;    
@@ -40,10 +41,9 @@ body{
     from{font-size: inherit;}
     to{font-size: 200%;}
 }
-@media (max-width: 700px){
-    body{
-        background-image: none;
-    }
+@keyframes logoGrow{
+    from {height: 30px;}
+    to {height: 50px;}
 }
 .best{
     animation: growth;
@@ -66,20 +66,36 @@ body{
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
 }
-/* Link animation */
 .link:hover{
     animation-name: logoGrow;
     animation-duration: .2s;
     animation-fill-mode: forwards;
 
 }
-@keyframes logoGrow{
-    from {height: 30px;}
-    to {height: 50px;}
-}
+
 /* Menu page styling */
+
+.menu-container h1{
+    animation: growth;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+.menu-display{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5%;
+    align-items: center;
+}
+
 
 /* Checkout page styling */
 
 /* Contact page styling */
 
+/* Media Queries - not much as this has been designed mobile-first*/
+@media (max-width: 700px){
+    body{
+        background-image: none;
+    }
+}

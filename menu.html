@@ -7,7 +7,9 @@
     <meta name="keywords" content="pizza, Tauranga, Chicken Joes, top-notch">
     <meta name="description" content="Tauranga's best italian style pizzas">
     <meta name="author" content="Ben Jones">
-    <script src="script.js" defer></script>
+    
+    <script type="module" src="menuclass.js" async></script>
+    <script type="module" src="script.js" async></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalise.css">
     <title>Menu - Chicken Joe's Pizza</title>
@@ -26,6 +28,19 @@
         <div class="menu-container">
             <h1>Menu</h1>
             <br>
+            <div class="menu-selections">
+                <button class="pizzaButton">Pizzas</button>
+                <button>Sides</button>
+                <button>Drinks</button>
+            </div>
+            
+                <h1 class="menu-heading"></h1>
+                <div class="menu-display">
+                <div class="product1"></div>
+                <div class="product2"></div>
+                <div class="product3"></div>
+                <div class="product4"></div>
+            </div>
             <br>
             <img src="images/pizza.gif" alt="dancing pizza gif" height="100px">
             <img src="images/pizza.gif" alt="dancing pizza gif" height="100px">
