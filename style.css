@@ -1,0 +1,75 @@
+body{
+    font-family: 'Stick No Bills', sans-serif;    
+    background-image: url(images/chickenjoe.jpg);
+    background-size: 20%;
+    background-position: bottom right;
+    background-repeat: no-repeat;    
+}
+/* index page styling */
+.index-header{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.index-container{
+    max-width: 500px; 
+    margin: auto; 
+    background-color: white;    
+    height: 100vh;
+    text-align: center;
+}
+.index-body button{
+    border: 2px solid grey;
+    border-radius: 10px;
+    background-color: white;
+}
+.index-body a{
+    text-decoration: none;
+    color: black;
+}
+
+/* index animations */
+@keyframes homeScreen{
+    0%{display: inherit;}
+    50%{transform: rotate(180deg); font-size: 200%;}
+    100%{font-size: 300%;}
+}
+@keyframes growth{
+    from{font-size: inherit;}
+    to{font-size: 200%;}
+}
+@media (max-width: 700px){
+    body{
+        background-image: none;
+    }
+}
+.best{
+    animation: growth;
+    animation-duration: 3s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+}
+.index-container h1{
+    animation: homeScreen;
+    animation-duration: 4s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+.index-body button:hover{
+    border: 2px solid grey;
+    border-radius: 10px;
+    background-color: white;
+    animation: growth;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+/* Menu page styling */
+
+/* Checkout page styling */
+
+/* Contact page styling */
+
