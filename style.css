@@ -3,7 +3,8 @@ body{
     background-image: url(images/chickenjoe.jpg);
     background-size: 20%;
     background-position: bottom right;
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;  
+    background-attachment: fixed;  
     height: 100vh;
 }
 /* index page styling */
