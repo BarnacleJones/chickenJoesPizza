@@ -66,7 +66,17 @@ body{
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
 }
+/* Link animation */
+.link:hover{
+    animation-name: logoGrow;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
 
+}
+@keyframes logoGrow{
+    from {height: 30px;}
+    to {height: 50px;}
+}
 /* Menu page styling */
 
 /* Checkout page styling */
