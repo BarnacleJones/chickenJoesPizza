@@ -1,5 +1,3 @@
-
-
 class MenuItem{
     constructor(
         name,
@@ -16,9 +14,8 @@ addToMenu(){
     const item = `
     <h2>${this.name}:</h2>
     <p>${this.ingredients}</p>
-    <p>${this.price}</p>
-    <button>Add to order</button>
-    `
+    <p>$${this.price}</p>
+    <button class="addButton" onclick="addToOrder(${this.price})">Add to order</button>`
     return item;
 }
 }

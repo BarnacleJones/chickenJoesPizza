@@ -80,6 +80,8 @@ body{
     animation: growth;
     animation-duration: 3s;
     animation-fill-mode: forwards;
+    display: flex;
+    flex-direction: column;
 }
 .menu-display{
     display: flex;
@@ -87,6 +89,13 @@ body{
     flex-wrap: wrap;
     gap: 5%;
     align-items: center;
+}
+
+.totals{
+    border: 2px solid black;
+    float: right;
+    width: 20%;    
+    display: none;
 }
 
 
