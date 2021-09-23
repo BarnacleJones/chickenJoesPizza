@@ -35,8 +35,8 @@ body{
 /* index animations */
 @keyframes homeScreen{
     0%{display: inherit;}
-    50%{transform: rotate(180deg); font-size: 200%;}
-    100%{font-size: 300%;}
+    50%{transform: rotate(360deg);}
+    100%{font-size: 200%;}
 }
 @keyframes growth{
     from{font-size: inherit;}
@@ -48,13 +48,13 @@ body{
 }
 .best{
     animation: growth;
-    animation-duration: 3s;
-    animation-delay: 4s;
+    animation-duration: 2s;
+    animation-delay: 2s;
     animation-fill-mode: forwards;
 }
 .index-container h1{
     animation: homeScreen;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
 }
