@@ -7,8 +7,7 @@
     <meta name="keywords" content="pizza, Tauranga, Chicken Joes, top-notch">
     <meta name="description" content="Tauranga's best italian style pizzas">
     <meta name="author" content="Ben Jones">    
-    <script type="module" src="menuclass.js" defer></script>
-    <script type="module" src="script.js" defer></script>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalise.css">
     <title>Menu - Chicken Joe's Pizza</title>
@@ -17,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap" rel="stylesheet"> 
 </head>
 
-    <body class="index-body">
+    <body class="menu-body">
         <header class="index-header">
             <a href="index.html"><img src="images/chicken.jpg" alt="chicken Joe" height="75px"></a>
             <nav>
@@ -26,7 +25,7 @@
         </header>
         <div class="totals">
             <div>
-            <h2>Order: </h2>
+            <h2>Order: <span class="pickupOrDelivery"></span> </h2>
             <hr>
         </div>
         <div><h3>Total: <span class="orderTotal"></span></h3></div>
@@ -51,16 +50,21 @@
             <img src="images/pizza.gif" alt="dancing pizza gif" height="100px">
             <img src="images/pizza.gif" alt="dancing pizza gif" height="100px">
         </div>
+        <script type="module" src="menuclass.js" defer></script>
+        <script type="module" src="script.js" defer></script>
+        <script>
+            let runningTotal = 0;            
+                function addToOrder(price){
+                const item = document.createElement("P");
+                item.innerText = price;
+                document.querySelector(".totals").append(item);
+                document.querySelector(".totals").style = "display: inherit";
+                runningTotal += price;                
+                document.querySelector(".orderTotal").innerText = runningTotal;                
+                }
+        </script>
 
-<script>
-    function addToOrder(price){
-    const item = document.createElement("P");
-    item.innerText = price;
-    document.querySelector(".totals").append(item);
-    console.log("yo");
-    document.querySelector(".totals").style = "display: inherit";
-}
-</script>
     </body>
+
 
 </html>
