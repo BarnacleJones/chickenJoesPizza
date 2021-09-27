@@ -15,7 +15,7 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-.index-container, .menu-container{
+.index-container, .menu-container, .checkout-container{
     max-width: 500px; 
     margin: auto; 
     background-color: white;    
@@ -104,6 +104,11 @@ body{
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
+}
+
+.menu-body a{
+    text-decoration: none;
+    color: black;
 }
 
 .totals{

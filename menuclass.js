@@ -3,8 +3,7 @@ class MenuItem{
         name,
         ingredients,
         price
-    )
-{
+    ){
     this.name = name;
     this.ingredients = ingredients;
     this.price = price
@@ -36,4 +35,4 @@ addToMenu(){
 }
 }
 
-export default MenuItem
+export default MenuItem;

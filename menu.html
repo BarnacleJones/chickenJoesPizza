@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="pizza, Tauranga, Chicken Joes, top-notch">
     <meta name="description" content="Tauranga's best italian style pizzas">
-    <meta name="author" content="Ben Jones">    
-
+    <meta name="author" content="Ben Jones">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalise.css">
     <title>Menu - Chicken Joe's Pizza</title>
@@ -31,6 +30,7 @@
             <hr>
         </div>
         <div><h3>Total: <span class="orderTotal"></span></h3></div>
+        <button><a href="checkout.html" onclick="storeTotal()">Checkout</a> </button>
             
         </div>
         <div class="menu-container">
@@ -60,16 +60,13 @@
         <script>
 
         ///QUESTION FOR ANDREW       
-        
-        
+          
         
         
         
         //- why does this not work when running from script sheet?
         //is it because these buttons didn't exist when page loaded, as they are attached to objects?
         // Is there a way around that?    
-
-
 
 
         let runningTotal = 0;
@@ -83,6 +80,16 @@
         //runningTotal = runningTotal + price + deliveryFee;??                
         document.querySelector(".orderTotal").innerText = runningTotal; 
         }
+
+        // function totalup(){
+            
+        //     alert("You owe: " + runningTotal + " proceed to checkout");
+            
+        // }
+        function storeTotal(){
+            localStorage.setItem("totals", runningTotal);
+        }
+        
         </script>
 
     </body>

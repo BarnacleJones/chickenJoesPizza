@@ -7,7 +7,9 @@
     <meta name="keywords" content="pizza, Tauranga, Chicken Joes, top-notch">
     <meta name="description" content="Tauranga's best italian style pizzas">
     <meta name="author" content="Ben Jones">
-    <script src="script.js" defer></script>
+    <script type="module" src="menuclass.js" defer></script>
+    <script type="module" src="script.js" defer></script>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalise.css">
     <title>Checkout - Chicken Joe's Pizza</title>
@@ -17,6 +19,7 @@
 </head>
 <body>
     <body class="index-body">
+        
         <header class="index-header">
             <a href="index.html"><img src="images/chicken.jpg" alt="chicken Joe" height="75px"></a>
             <nav>
@@ -25,12 +28,46 @@
         </header>
         <div class="checkout-container">
             <h1>Checkout</h1>
-            
+            <h2>Your total: <span class="total"></span></h2>
+            <h3>How will you pay?</h3>
             <br>
+            <label for="radio" >Pay in store (Cash/EFTPOS)</label>
+            <input type="radio" name="1" value="instore" onclick="willPay(this.value)">
+            <br>
+            <label for="radio" >Credit Card</label>
+            <input type="radio" name="1" value="creditCard" onclick="willPay(this.value)">
+            <br>
+            <label for="radio">Kitchen work ($25/hr)</label>
+            <input type="radio" name="1" value="kitchen" onclick="willPay(this.value)">
+            <br>
+
+            <button><a href="menu.html">Go Back (restarts order)</a></button>
+            
             <br>
             <img src="images/pizza.gif" alt="dancing pizza gif" height="100px">
             <img src="images/pizza.gif" alt="dancing pizza gif" height="100px">
         </div>
+    
+        <script>
+            
+            
+            document.querySelector(".total").innerText = localStorage.getItem("totals"); 
+            
+            function willPay(value){
+                if (value === "instore") {
+                    alert("We will see you in 15-20 minutes, thanks.");
+                }
+                if (value === "creditCard") {
+                    alert("Please don't enter those details anywhere near this project")
+                }
+                if (value === "kitchen") {
+                    alert("Great, we look forward to you working here.")
+                }
+            }
+            
+    
+            
+        </script>
     </body>
 </body>
 </html>
