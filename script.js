@@ -1,8 +1,11 @@
 import MenuItem from "./menuclass.js";
+
 //event listeners
 document.querySelector(".pizzaButton").addEventListener("click", pizzas);
 document.querySelector(".sidesButton").addEventListener("click", sides);
 document.querySelector(".drinksButton").addEventListener("click", drinks);
+document.querySelector(".deliveryButton").addEventListener("click", deliveryChoice);
+document.querySelector(".pickupButton").addEventListener("click", pickupChoice);
 
 //create all menu items
 
@@ -74,15 +77,13 @@ const porter = new MenuItem(
     4.99,
 )
 
-
+//add menu items to page
 function pizzas(){
 document.querySelector(".menu-heading").innerText = "Our delicious range of Pizzas:"
 document.querySelector(".product1").innerHTML = classicVeg.addToMenu();
 document.querySelector(".product2").innerHTML = classicVegan.addToMenu();
 document.querySelector(".product3").innerHTML = newVeg.addToMenu();
 document.querySelector(".product4").innerHTML = newVegan.addToMenu();
-
-// document.getElementsByClassName(".addButton").addEventListener("click", addToOrder);
 }
 
 function sides(){
@@ -91,9 +92,6 @@ document.querySelector(".product1").innerHTML = garlicBread.addToMenu();
 document.querySelector(".product2").innerHTML = garlicTwists.addToMenu();
 document.querySelector(".product3").innerHTML = brownies.addToMenu();
 document.querySelector(".product4").innerHTML = veganbrownies.addToMenu();
-
-
-// document.getElementsByClassName(".addButton").addEventListener("click", addToOrder);
 }
 function drinks(){
 document.querySelector(".menu-heading").innerText = "Drinks to wash it all down:"
@@ -101,11 +99,38 @@ document.querySelector(".product1").innerHTML = stout.addToMenu();
 document.querySelector(".product2").innerHTML = lager.addToMenu();
 document.querySelector(".product3").innerHTML = ale.addToMenu();
 document.querySelector(".product4").innerHTML = porter.addToMenu();
-
-// document.getElementsByClassName(".addButton").addEventListener("click", addToOrder);
 }
 
 
 
+//delivery or pickup chosen + add to total and write delivery
+
+ 
+
+///QUESTION FOR ANDREW
+
+
+
+//- how can I get this delivery fee to speak with the totals on the menu.html page?
+//any time I try a 'var' variable (which is global?) it doesn't recognise it
+
+
+function deliveryChoice(){
+    document.querySelector(".pickupOrDelivery").innerText = "Delivery";
+    const item = document.createElement("P");
+    item.innerText = 5 + " Delivery Fee";
+    document.querySelector(".totals").append(item);
+    console.log("working");
+    //var deliveryFee =5; 
+        
+}
+
+function pickupChoice(){
+    document.querySelector(".pickupOrDelivery").innerText = "Pickup";
+    const item = document.createElement("P");
+    item.innerText = "Free - Pickup";
+    document.querySelector(".totals").append(item);
+    console.log("working");
+}
 
 

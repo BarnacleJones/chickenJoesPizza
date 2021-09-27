@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap" rel="stylesheet"> 
+<script type="module" src="menuclass.js" defer ></script>
+<script type="module" src="script.js" defer ></script>
 </head>
 
     <body class="menu-body">
@@ -34,6 +36,10 @@
         <div class="menu-container">
             <h1>Menu</h1>
             <br>
+            <div class="options">
+                <button class="deliveryButton" type="button" onclick="this.disabled = true;">Delivery</button>
+                <button class="pickupButton" type="button" onclick="this.disabled = true;">Pickup</button>
+            </div>
             <div class="menu-selections">
                 <button class="pizzaButton">Pizzas</button>
                 <button class="sidesButton">Sides</button>
@@ -50,18 +56,33 @@
             <img src="images/pizza.gif" alt="dancing pizza gif" height="100px">
             <img src="images/pizza.gif" alt="dancing pizza gif" height="100px">
         </div>
-        <script type="module" src="menuclass.js" defer></script>
-        <script type="module" src="script.js" defer></script>
+
         <script>
-            let runningTotal = 0;            
-                function addToOrder(price){
-                const item = document.createElement("P");
-                item.innerText = price;
-                document.querySelector(".totals").append(item);
-                document.querySelector(".totals").style = "display: inherit";
-                runningTotal += price;                
-                document.querySelector(".orderTotal").innerText = runningTotal;                
-                }
+
+        ///QUESTION FOR ANDREW       
+        
+        
+        
+        
+        
+        //- why does this not work when running from script sheet?
+        //is it because these buttons didn't exist when page loaded, as they are attached to objects?
+        // Is there a way around that?    
+
+
+
+
+        let runningTotal = 0;
+
+        function addToOrder(price){
+        const item = document.createElement("P");
+        item.innerText = price;
+        document.querySelector(".totals").append(item);
+        runningTotal += price;
+        //Ideally would like to add delivery fee here
+        //runningTotal = runningTotal + price + deliveryFee;??                
+        document.querySelector(".orderTotal").innerText = runningTotal; 
+        }
         </script>
 
     </body>
