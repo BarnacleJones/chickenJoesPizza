@@ -71,9 +71,9 @@
 
         let runningTotal = 0;
 
-        function addToOrder(price){
+        function addToOrder(price, name){
         const item = document.createElement("P");
-        item.innerText = price;
+        item.innerText = price + name;
         document.querySelector(".totals").append(item);
         runningTotal += price;
         //Ideally would like to add delivery fee here

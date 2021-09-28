@@ -102,19 +102,6 @@ document.querySelector(".product4").innerHTML = porter.addToMenu();
 }
 
 
-
-//delivery or pickup chosen + add to total and write delivery
-
- 
-
-///QUESTION FOR ANDREW
-
-
-
-//- how can I get this delivery fee to speak with the totals on the menu.html page?
-//any time I try a 'var' variable (which is global?) it doesn't recognise it
-
-
 function deliveryChoice(){
     document.querySelector(".pickupOrDelivery").innerText = "Delivery";
     const item = document.createElement("P");
