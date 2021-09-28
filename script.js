@@ -10,72 +10,24 @@ document.querySelector(".pickupButton").addEventListener("click", pickupChoice);
 //create all menu items
 
 //pizzas
-const classicVeg = new MenuItem(
-    "Classic Vegetarian",
-    "Olives, tomatoes, cheese, spinach, basil",
-    14.99,
-)
-const classicVegan = new MenuItem(
-    "Classic Vegan",
-    "Olives, tomatoes, vegan cheese, spinach, basil",
-    16.99,
-)
-const newVeg = new MenuItem(
-    "Joe's Veg",
-    "Pineapple, capsicum, tomatoes, cheese, spinach, basil",
-    14.99,
-)
-const newVegan = new MenuItem(
-    "Joe's Vegan",
-    "Pineapple, capsicum, tomatoes, vegan cheese, spinach, basil",
-    16.99,
-)
+const classicVeg = new MenuItem("Classic Vegetarian","Olives, tomatoes, cheese, spinach, basil",14.99)
+const classicVegan = new MenuItem("Classic Vegan","Olives, tomatoes, vegan cheese, spinach, basil",16.99)
+const newVeg = new MenuItem("Joes Veg","Pineapple, capsicum, tomatoes, cheese, spinach, basil",14.99)
+const newVegan = new MenuItem("Joes Vegan","Pineapple, capsicum, tomatoes, vegan cheese, spinach, basil",16.99)
 
 //Sides
 
-const garlicBread = new MenuItem(
-    "Classic Garlic bread",
-    "Oven Fresh, vegan/vegetarian friendly",
-    4.99,
-)
-const garlicTwists = new MenuItem(
-    "Garlic twists",
-    "Salted garlic bread twists, vegan friendly",
-    6.99,
-)
-const brownies = new MenuItem(
-    "Joe's Brownie",
-    "More chocolate than you know what to do with",
-    4.99,
-)
-const veganbrownies = new MenuItem(
-    "Joe's Vegan Brownie",
-    "A vegan take on the famous Joe's Brownie",
-    6.99,
-)
+const garlicBread = new MenuItem("Classic Garlic bread","Oven Fresh, vegan/vegetarian friendly",4.99)
+const garlicTwists = new MenuItem("Garlic twists","Salted garlic bread twists, vegan friendly",6.99)
+const brownies = new MenuItem("Joes Brownie","More chocolate than you know what to do with",4.99)
+const veganbrownies = new MenuItem("Joes Vegan Brownie","A vegan take on the famous Joe's Brownie",6.99)
 
 //Drinks
 
-const stout = new MenuItem(
-    "Joe's stout",
-    "Made in Joe's brewery, a great dessert pairing",
-    4.99,
-)
-const lager = new MenuItem(
-    "Joe's Lager",
-    "Light, quenching lager. Made for our pizza's",
-    4.99,
-)
-const ale = new MenuItem(
-    "Joe's Ale",
-    "Another perfect pizza pairing",
-    4.99,
-)
-const porter = new MenuItem(
-    "Joe's Porter",
-    "A heavy drink, great with a brownie",
-    4.99,
-)
+const stout = new MenuItem("Joes stout","Made in Joe's brewery, a great dessert pairing",4.99)
+const lager = new MenuItem("Joes Lager","Light, quenching lager. Made for our pizza's",4.99)
+const ale = new MenuItem("Joes Ale","Another perfect pizza pairing",4.99)
+const porter = new MenuItem("Joes Porter","A heavy drink, great with a brownie",4.99)
 
 //add menu items to page
 function pizzas(){

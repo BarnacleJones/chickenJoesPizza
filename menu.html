@@ -59,33 +59,16 @@
 
         <script>
 
-        ///QUESTION FOR ANDREW       
-          
-        
-        
-        
-        //- why does this not work when running from script sheet?
-        //is it because these buttons didn't exist when page loaded, as they are attached to objects?
-        // Is there a way around that?    
-
-
         let runningTotal = 0;
 
         function addToOrder(price, name){
         const item = document.createElement("P");
-        item.innerText = price + name;
+        item.innerText = price + " " + name;
         document.querySelector(".totals").append(item);
-        runningTotal += price;
-        //Ideally would like to add delivery fee here
-        //runningTotal = runningTotal + price + deliveryFee;??                
+        runningTotal += price;            
         document.querySelector(".orderTotal").innerText = runningTotal; 
         }
 
-        // function totalup(){
-            
-        //     alert("You owe: " + runningTotal + " proceed to checkout");
-            
-        // }
         function storeTotal(){
             localStorage.setItem("totals", runningTotal);
         }
