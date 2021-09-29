@@ -4,8 +4,7 @@ import MenuItem from "./menuclass.js";
 document.querySelector(".pizzaButton").addEventListener("click", pizzas);
 document.querySelector(".sidesButton").addEventListener("click", sides);
 document.querySelector(".drinksButton").addEventListener("click", drinks);
-document.querySelector(".deliveryButton").addEventListener("click", deliveryChoice);
-document.querySelector(".pickupButton").addEventListener("click", pickupChoice);
+
 
 //create all menu items
 
@@ -54,22 +53,5 @@ document.querySelector(".product4").innerHTML = porter.addToMenu();
 }
 
 
-function deliveryChoice(){
-    document.querySelector(".pickupOrDelivery").innerText = "Delivery";
-    const item = document.createElement("P");
-    item.innerText = 5 + " Delivery Fee";
-    document.querySelector(".totals").append(item);
-    console.log("working");
-    //var deliveryFee =5; 
-        
-}
-
-function pickupChoice(){
-    document.querySelector(".pickupOrDelivery").innerText = "Pickup";
-    const item = document.createElement("P");
-    item.innerText = "Free - Pickup";
-    document.querySelector(".totals").append(item);
-    console.log("working");
-}
 
 

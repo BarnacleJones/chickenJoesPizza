@@ -24,22 +24,28 @@
             <a href="contact.html">Contact</a>
         </nav>
         </header>
+        <!-- Totals box -->
         <div class="totals">
             <div>
             <h2>Order: <span class="pickupOrDelivery"></span> </h2>
             <hr>
         </div>
         <div><h3>Total: <span class="orderTotal"></span></h3></div>
-        <button><a href="checkout.html" onclick="storeTotal()">Checkout</a> </button>
-            
+        <button class="checkoutButton"><a href="checkout.html">Checkout</a> </button>
         </div>
+
+
         <div class="menu-container">
             <h1>Menu</h1>
+            <br>
+            <!-- Buttons for delivery/pickup and menu item pages -->
+            <h2 class="deliveryPrompt">Select delivery or pickup before you begin your order</h2>
             <br>
             <div class="options">
                 <button class="deliveryButton" type="button" onclick="this.disabled = true;">Delivery</button>
                 <button class="pickupButton" type="button" onclick="this.disabled = true;">Pickup</button>
             </div>
+            <br><br>
             <div class="menu-selections">
                 <button class="pizzaButton">Pizzas</button>
                 <button class="sidesButton">Sides</button>
@@ -59,16 +65,65 @@
 
         <script>
 
+        // Event listeners
+        document.querySelector(".deliveryButton").addEventListener("click", deliveryChoice);
+        document.querySelector(".pickupButton").addEventListener("click", pickupChoice);
+        document.querySelector(".checkoutButton").addEventListener("click", storeTotal);
+        //Variables
+        let deliveryFee = 5;
         let runningTotal = 0;
+        let pickupTotal = 0;
+        
+
+
+        //Function for adding each menu item to the order
 
         function addToOrder(price, name){
-        const item = document.createElement("P");
-        item.innerText = price + " " + name;
-        document.querySelector(".totals").append(item);
-        runningTotal += price;            
-        document.querySelector(".orderTotal").innerText = runningTotal; 
-        }
+            if (pickupTotal == 0) {
+                const item = document.createElement("P");
+                item.innerText = price + " " + name;
+                document.querySelector(".totals").append(item);
+                runningTotal = runningTotal + price + deliveryFee; 
+                runningTotal = (Math.round(runningTotal * 100)/100);           
+                document.querySelector(".orderTotal").innerText = runningTotal;
+                deliveryFee = 0;
+            }
+            else{
+                const item = document.createElement("P");
+                item.innerText = price + " " + name;
+                document.querySelector(".totals").append(item);
+                runningTotal = runningTotal + price + pickupTotal;            
+                document.querySelector(".orderTotal").innerText = runningTotal;
+            }
+            
+            }
 
+        function deliveryChoice(){
+            document.querySelector(".pickupOrDelivery").innerText = "Delivery";
+            const item = document.createElement("P");
+            item.innerText = 5 + " Delivery Fee";
+            document.querySelector(".totals").append(item);
+            document.querySelector(".pizzaButton").style = "display: initial;"
+            document.querySelector(".sidesButton").style = "display: initial;"
+            document.querySelector(".drinksButton").style = "display: initial;"
+            document.querySelector(".deliveryPrompt").style = "display: none;"
+            }    
+
+        function pickupChoice(){
+            document.querySelector(".pickupOrDelivery").innerText = "Pickup";
+            const item = document.createElement("P");
+            item.innerText = "Free - Pickup";
+            document.querySelector(".totals").append(item);
+            console.log("working");
+            pickupTotal++;
+            document.querySelector(".pizzaButton").style = "display: initial;"
+            document.querySelector(".sidesButton").style = "display: initial;"
+            document.querySelector(".drinksButton").style = "display: initial;"
+            document.querySelector(".deliveryPrompt").style = "display: none;"
+
+            }
+
+        //Function to store the total with the browser for the checkout screen
         function storeTotal(){
             localStorage.setItem("totals", runningTotal);
         }

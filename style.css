@@ -118,6 +118,10 @@ body{
     
 }
 
+.pizzaButton, .sidesButton, .drinksButton {
+    display: none;
+}
+
 
 /* Checkout page styling */
 
