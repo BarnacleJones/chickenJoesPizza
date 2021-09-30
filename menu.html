@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="pizza, Tauranga, Chicken Joes, top-notch">
+    <meta name="description" content="Tauranga's best italian style pizzas">
+    <meta name="author" content="Ben Jones">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalise.css">
+    <title>Menu - Chicken Joe's Pizza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap" rel="stylesheet"> 
+<script type="module" src="menuclass.js" defer ></script>
+<script type="module" src="script.js" defer ></script>
+</head>
+
+    <body class="menu-body">
+        <header class="index-header">
+            <a href="index.html"><img src="images/chicken.jpg" alt="chicken Joe" height="75px"></a>
+            <nav>
+            <a href="contact.html">Contact</a>
+        </nav>
+        </header>
+        <!-- Totals box -->
+        <div class="totals">
+            <div>
+            <h2>Order: <span class="pickupOrDelivery"></span> </h2>
+            <hr>
+        </div>
+        <div><h3>Total: <span class="orderTotal"></span></h3></div>
+        <button class="checkoutButton"><a href="checkout.html">Checkout</a> </button>
+        </div>
+
+
+        <div class="menu-container">
+            <h1>Menu</h1>
+            <br>
+            <!-- Buttons for delivery/pickup and menu item pages -->
+            <h2 class="deliveryPrompt">Select delivery or pickup before you begin your order</h2>
+            <br>
+            <div class="options">
+                <button class="deliveryButton" type="button" onclick="this.disabled = true;">Delivery</button>
+                <button class="pickupButton" type="button" onclick="this.disabled = true;">Pickup</button>
+            </div>
+            <br><br>
+            <div class="menu-selections">
+                <button class="pizzaButton">Pizzas</button>
+                <button class="sidesButton">Sides</button>
+                <button class="drinksButton">Drinks</button>
+            </div>            
+                <h1 class="menu-heading"></h1>
+                <div class="menu-display">
+                <div class="product1"></div>
+                <div class="product2"></div>
+                <div class="product3"></div>
+                <div class="product4"></div>
+            </div>
+            <br>
+            <img src="images/pizza.gif" alt="dancing pizza gif" height="100px">
+            <img src="images/pizza.gif" alt="dancing pizza gif" height="100px">
+        </div>
+
+        <script>
+
+        // Event listeners
+        document.querySelector(".deliveryButton").addEventListener("click", deliveryChoice);
+        document.querySelector(".pickupButton").addEventListener("click", pickupChoice);
+        document.querySelector(".checkoutButton").addEventListener("click", storeTotal);
+        
+        //Variables
+        let deliveryFee = 5;
+        let runningTotal = 0;
+        let pickup = 0;
+        let menuPosition = 0;
+        
+        function deliveryChoice(){
+            document.querySelector(".pickupOrDelivery").innerText = "Delivery";
+            const item = document.createElement("P");
+            item.innerText = 5 + " Delivery Fee";
+            document.querySelector(".totals").append(item);
+            document.querySelector(".pizzaButton").style = "display: initial;"
+            document.querySelector(".sidesButton").style = "display: initial;"
+            document.querySelector(".drinksButton").style = "display: initial;"
+            document.querySelector(".deliveryPrompt").style = "display: none;"
+            document.querySelector(".deliveryButton").style = "display: none;"
+            document.querySelector(".pickupButton").style = "display: none;"
+            
+            }    
+
+        function pickupChoice(){
+            document.querySelector(".pickupOrDelivery").innerText = "Pickup";
+            const item = document.createElement("P");
+            item.innerText = "Free - Pickup";
+            document.querySelector(".totals").append(item);
+            pickup++;
+            document.querySelector(".pizzaButton").style = "display: initial;"
+            document.querySelector(".sidesButton").style = "display: initial;"
+            document.querySelector(".drinksButton").style = "display: initial;"
+            document.querySelector(".deliveryPrompt").style = "display: none;"
+            document.querySelector(".deliveryButton").style = "display: none;"
+            document.querySelector(".pickupButton").style = "display: none;"
+
+            }
+
+        //Function for adding each menu item to the order
+
+        function addToOrder(price, name){
+            if (pickup == 0) {
+                const item = `
+                <div class="${name + menuPosition}">
+                <p>${price + " " + name}</p>
+                <button onclick="removeFromOrder('${name + menuPosition}', ${price})">Remove</button>
+                </div>`
+                const itemToAdd = document.createElement("DIV");
+                itemToAdd.innerHTML = item;
+     
+                //append them all to the totals box
+                document.querySelector(".totals").append(itemToAdd);
+
+                //totals tally code                
+                runningTotal = runningTotal + price + deliveryFee; 
+                runningTotal = (Math.round(runningTotal * 100)/100);           
+                document.querySelector(".orderTotal").innerText = runningTotal;
+                deliveryFee = 0;
+                menuPosition++;
+                
+            }
+
+
+            else{                
+                const item = `
+                <div class="${name + menuPosition}">
+                <p>${price + " " + name}</p>
+                <button onclick="removeFromOrder('${name + menuPosition}', ${price})">Remove</button>
+                </div>`
+                const itemToAdd = document.createElement("DIV");
+                itemToAdd.innerHTML = item;
+     
+                //append them all to the totals box
+                document.querySelector(".totals").append(itemToAdd);
+                //totals tally
+                runningTotal = runningTotal + price;  
+                         
+                document.querySelector(".orderTotal").innerText = runningTotal;
+                
+            }
+            
+            }
+
+        
+
+        //remove from order
+
+        function removeFromOrder(name, price){
+            
+            let thisItem = document.getElementsByClassName(name);
+            thisItem[0].remove();
+            runningTotal -= price;
+            runningTotal = (Math.round(runningTotal * 100)/100); 
+            document.querySelector(".orderTotal").innerText = runningTotal;
+            
+        }
+
+        //Function to store the total with the browser for the checkout screen
+        function storeTotal(){
+            localStorage.setItem("totals", runningTotal);
+        }
+        
+        </script>
+
+    </body>
+
+
+</html>
