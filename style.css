@@ -14,7 +14,7 @@ body{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
+   }
 .index-container, .menu-container, .checkout-container{
     max-width: 500px; 
     margin: auto; 
@@ -34,8 +34,7 @@ body{
 
 /* index animations */
 @keyframes homeScreen{
-    from {font-size: 1em;}
-    
+    from {font-size: 1em;}    
     to {font-size: 200%;}
 }
 @keyframes growth{
@@ -71,7 +70,6 @@ body{
     animation-name: logoGrow;
     animation-duration: .2s;
     animation-fill-mode: forwards;
-
 }
 
 /* Menu page styling */
@@ -90,7 +88,6 @@ body{
     gap: 5%;
     align-items: center;
 }
-
 .menu-body button{
     border: 2px solid grey;
     border-radius: 10px;
@@ -105,28 +102,19 @@ body{
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
 }
-
 .menu-body a{
     text-decoration: none;
     color: black;
 }
-
 .totals{
     border: 2px solid black;
     float: right;
     width: 20%;    
     
 }
-
 .pizzaButton, .sidesButton, .drinksButton {
     display: none;
 }
-
-
-
-/* Checkout page styling */
-
-/* Contact page styling */
 
 /* Media Queries - not much as this has been designed mobile-first*/
 @media (max-width: 700px){
