@@ -1,7 +1,5 @@
 Welcome to Chicken Joe's pizza
 
-This website is created for assessment 2 for Enterprise5203
-
 For this project a Trello Kanban board is used:
 https://trello.com/b/HjKxZuCn/pizza-website
 
